@@ -11,6 +11,7 @@ import ListItemsForPets from "./pages/ListItemsForPets"
 import ListPets from "./pages/ListPets"
 import Login from "./pages/Login"
 import Search from "./pages/Search"
+import Thanks from "./pages/Thanks"
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/aboutItems/:id" element={<AboutItems />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/search/:name" element={<Search />} />
+        <Route path="/thanks" element={<Thanks />} />
       </Routes>
     </div>
   )

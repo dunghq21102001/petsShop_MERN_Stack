@@ -1,17 +1,19 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ListProduct from '../components/ListProduct'
 import WarrantyPolicy from '../components/WarrantyPolicy'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../actions/cartAction'
 import { useState } from 'react'
 function AboutProduct() {
+    const usersState = useSelector(state => state.loginUserReducer)
+    const { currentUser } = usersState
     const [openPopup, setOpenPopup] = useState(false)
     const param = useParams()
     const dispatch = useDispatch()
     const petsState = useSelector(state => state.getAllPetsReducer)
     const { pets } = petsState
-
+    const navigate = useNavigate()
 
     const pet = pets?.find(pet => pet._id === param.id)
     let listPets
@@ -28,7 +30,10 @@ function AboutProduct() {
             setOpenPopup(false)
         }, 2000)
     }
-
+    const handleBuy = () => {
+        if (!currentUser) navigate('/login')
+        else navigate('/thanks')
+    }
     return (
         <div>
 
@@ -61,7 +66,7 @@ function AboutProduct() {
                         <button
                             onClick={handleAddToCart}
                             className='border-[#fdbc1c] border-[1px] border-solid rounded-md w-[30%] py-2 m-4 text-[#fdbc1c] hover:bg-[#fdbc1c] hover:text-white'>Add to Cart</button>
-                        <button className='bg-[#fdbc1c] border-none rounded-md w-[30%] py-2 m-4 text-white hover:bg-[#c9961b]'>Buy Now</button>
+                        <button className='bg-[#fdbc1c] border-none rounded-md w-[30%] py-2 m-4 text-white hover:bg-[#c9961b]' onClick={handleBuy}>Buy Now</button>
                     </div>
                 </div>
             </div>

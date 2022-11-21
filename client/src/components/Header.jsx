@@ -10,9 +10,9 @@ import { logoutUser } from '../actions/userAction'
 function Header() {
     const cartState = useSelector(state => state.cartReducer)
     const usersState = useSelector(state => state.loginUserReducer)
+    const { currentUser } = usersState
     const [searchPopup, setSearchPopup] = useState(false)
     const [search, setSearch] = useState('')
-    const { currentUser } = usersState
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const handleSearch = (search) => {

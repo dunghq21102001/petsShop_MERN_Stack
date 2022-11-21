@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { listOfItems } from '../ListOfItems'
-
+import { useSelector } from 'react-redux'
 function ListItemsForPets() {
+    const itemsState = useSelector(state => state.getAllItemsReducer)
+    const { items } = itemsState
     const param = useParams()
-    const list = listOfItems.filter(i => i.forPetsType === param.forPetsType)
+    const list = items.filter(i => i.forPetsType === param.forPetsType)
 
     return (
         <div className='w-full mt-[200px]'>
@@ -20,7 +21,7 @@ function ListItemsForPets() {
                             <Link to={`/aboutItems/${i.id}`}>
                                 <h1 className='my-3'>{i.name}</h1>
                             </Link>
-                            <span className='my-3'>{i.price}</span>
+                            <span className='my-3'>{i.price}$</span>
                         </div>
                     ))}
             </div>

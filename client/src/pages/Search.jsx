@@ -6,8 +6,10 @@ import notFoundImg from '../assets/notfound.png'
 function Search() {
     const param = useParams()
     const petsState = useSelector(state => state.getAllPetsReducer)
+    const itemsState = useSelector(state => state.getAllItemsReducer)
+    const { items } = itemsState
     const { pets } = petsState
-    const listPetsFound = pets?.filter(p => p.name.toLowerCase().includes(param.name))
+    const listPetsFound = pets.concat(items).filter(p => p.name.toLowerCase().includes(param.name))
 
     return (
         <div className='w-full mt-[200px] flex flex-wrap justify-around'>

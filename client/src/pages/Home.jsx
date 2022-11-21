@@ -5,6 +5,7 @@ import dogVideo2 from '../assets/dog2.mp4'
 import ListProduct from '../components/ListProduct'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllPets } from '../actions/petsActions'
+import { getAllItems } from '../actions/itemsAction'
 function Home() {
     const dispatch = useDispatch()
     const petsState = useSelector(state => state.getAllPetsReducer)
@@ -13,7 +14,9 @@ function Home() {
     const listOfCats = pets?.filter(pet => pet.type == 'cats')
     useEffect(() => {
         dispatch(getAllPets())
+        dispatch(getAllItems())
     }, [])
+
     return (
         <div className='w-full mt-[200px] sm:mt-[100px]'>
 

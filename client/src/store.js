@@ -5,6 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { getAllPetsReducer } from './reducers/petsReducer'
 import { cartReducer } from './reducers/cartReducer'
 import { loginUserReducer, registerUserReducer } from './reducers/userReducer'
+import { getAllItemsReducer } from './reducers/itemsReducer'
 
 
 const reducer = combineReducers({
@@ -12,6 +13,7 @@ const reducer = combineReducers({
     cartReducer: cartReducer,
     registerUserReducer: registerUserReducer,
     loginUserReducer: loginUserReducer,
+    getAllItemsReducer: getAllItemsReducer,
 })
 
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []

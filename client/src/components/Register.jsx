@@ -20,7 +20,7 @@ function Register({ setOpenRegister }) {
             setMatched(true)
             setTimeout(() => {
                 setMatched(false)
-            }, 3000)
+            }, 2000)
         }
         else {
 
