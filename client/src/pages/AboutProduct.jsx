@@ -40,8 +40,8 @@ function AboutProduct() {
             <div className='w-full mt-[200px] flex flex-col sm:flex-row'>
 
                 <div className={openPopup
-                    ? "z-10 bg-green-400 border-l-4 border-white text-white p-4 duration-200 fixed right-0 top-[200px]"
-                    : "z-10 bg-green-400 border-l-4 border-white text-white p-4 duration-200 fixed right-[-220px] top-[200px]"}
+                    ? "z-10 bg-green-400 border-l-4 border-white text-white p-4 duration-500 fixed right-0 top-[200px]"
+                    : "z-10 bg-green-400 border-l-4 border-white text-white p-4 duration-500 fixed right-[-220px] top-[200px]"}
                     role="alert">
                     <p className="font-bold">Notify</p>
                     <p>Successfully added to cart</p>
